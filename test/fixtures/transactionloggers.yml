@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  request: MyString
+  timestamp: 2016-06-15 22:09:56
+
+two:
+  user: MyString
+  request: MyString
+  timestamp: 2016-06-15 22:09:56

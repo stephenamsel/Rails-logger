@@ -1,0 +1,50 @@
+<h1>Reports</h1>
+
+<h3><%= params[:q].nil? ? "Please Enter Search Parameters" : nil %></h3>
+
+<%= form_for :q, url: report_path, method: :get  do |f| %>
+
+  <div class="field">
+    <%= f.label "Type of Change" %><br>
+    <%= f.text_field :key %>
+  </div>
+  <div class="field">
+    <%= f.label "By individual loan?" %><br>
+    <%= f.check_box :same %>
+  </div>
+
+  <div class="field">
+    <%= f.label "After" %><br>
+    <%= f.date_field :date_gt %>
+  </div>
+  <div class="field">
+    <%= f.label "Before" %><br>
+    <%= f.date_field :date_lt %>
+  </div>
+  <div class="field">
+    <%= f.label "More than" %><br>
+    <%= f.number_field :count %><br>
+    <%= f.label "changs made" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Search" %>
+  </div>
+
+  <% if @flagged.length > 0 then %>
+  	<table>
+  		<tr>
+  			<th>User Email</th>
+  			<th>Number of Changes</th>
+  		</tr>
+	  	<% for user in @flagged do %>
+	  	<tr>
+	  		<td><%= user[:email] %></td>
+	  		<td><%= user[:num_events] %></td>
+	  	</tr>
+	  	
+	  	
+	  	<% end %>
+	</table>
+  <% end %>
+
+<% end %>

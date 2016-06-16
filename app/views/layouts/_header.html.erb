@@ -1,0 +1,9 @@
+  <div class="container">
+  	<% if current_user.present? %>
+  		<div align = "right">
+      		<ul> <%= link_to "Log out", logout_path, method: "delete" %> </ul>
+      	</div>
+      	<%= link_to :reports, report_path %>
+      	<%= link_to :loans, loans_path %>
+    	<hr>
+	<% end %>
